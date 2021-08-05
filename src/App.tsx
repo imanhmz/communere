@@ -5,7 +5,7 @@ import {IState} from "./Interface/Form";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import {useDispatch} from "react-redux";
 import {Map} from "./Components/Map";
-import {addData} from "./Redux/Action";
+import {addData} from "./Store/Action";
 
 interface InnerProps{
     loc: { lat:any,lng:any }
@@ -70,7 +70,7 @@ const App = () =>{
         lat:56,
         lng:106,
     }
-    function getBase64(event:any) {
+    const getBase64=(event:any)=> {
         let file = event
         let reader = new FileReader();
         reader.readAsDataURL(file);

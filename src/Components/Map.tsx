@@ -1,9 +1,10 @@
-import React, {useState, useRef, useMemo, useCallback, useEffect} from 'react';
+import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import {useSelector} from "react-redux";
-import {dataState} from "../Redux/Reducer";
+import {dataState} from "../Store/Reducer";
+
 export const Map:React.FC=()=>{
-    const datas= useSelector<dataState,dataState["data"]>((state)=> state.data )
+    const values= useSelector<dataState,dataState["data"]>((state)=> state.data )
     return(
         <div style={{width:'300px',height:'300px'}}>
             <MapContainer style={{width:'300px',height:'300px'}} center={{lat: 56, lng: 106,}} zoom={13} scrollWheelZoom={false}>
@@ -12,15 +13,15 @@ export const Map:React.FC=()=>{
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 {
-                    datas.map(data=>{
-                        if (data.lat && data.lng)
+                    values.map(value=>{
+                        if (value.lat && value.lng)
                         return(
-                            <Marker position={{lat:data.lat, lng:data.lng}}>
+                            <Marker position={{lat:value.lat, lng:value.lng}}>
                                 <Popup>
                                     <h5>
-                                        {data.locationName} / {data.locationType}
+                                        {value.locationName} / {value.locationType}
                                     </h5>
-                                    <img width='40px' src={data.icon} alt=""/>
+                                    <img width='40px' src={value.icon} alt=""/>
                                 </Popup>
                             </Marker>
                         )

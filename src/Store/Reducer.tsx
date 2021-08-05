@@ -1,12 +1,7 @@
 import {Action} from "./Action";
+import {IState} from "../Interface/Form";
 export interface dataState{
-    data: {
-        lat?:number,
-        lng?:number,
-        locationName?:string,
-        locationType?:string,
-        icon?:string
-    }[]
+    data: IState[]
 }
 const initialState:dataState={
    data:[]
