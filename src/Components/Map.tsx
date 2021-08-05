@@ -6,7 +6,7 @@ export const Map:React.FC=()=>{
     const datas= useSelector<dataState,dataState["data"]>((state)=> state.data )
     return(
         <div style={{width:'300px',height:'300px'}}>
-            <MapContainer style={{width:'300px',height:'300px'}} center={{lat: 50, lng: 50,}} zoom={13} scrollWheelZoom={false}>
+            <MapContainer style={{width:'300px',height:'300px'}} center={{lat: 56, lng: 106,}} zoom={13} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
